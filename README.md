@@ -102,6 +102,33 @@ Metrics used:
 
 ---
 
+## 🔍 Model Explainability (SHAP)
+
+To ensure transparency and trust in the final model, **SHAP (SHapley Additive Explanations)** was used to interpret predictions made by the tuned Random Forest model.
+
+### Global Insights
+
+SHAP analysis revealed that the most influential features driving customer churn are:
+
+- **Tenure**: Customers with shorter tenure are significantly more likely to churn.
+- **Contract Type**: Month-to-month contracts increase churn risk.
+- **Monthly Charges**: Higher monthly costs contribute positively to churn probability.
+- **Payment Method**: Certain payment methods correlate with higher churn behavior.
+
+### Local Interpretability
+
+SHAP was also used to explain **individual customer predictions**, enabling the model to answer:
+
+> _Why is this specific customer predicted to churn?_
+
+This level of explainability makes the model suitable for real-world business usage, where decision-makers must understand and trust model outputs.
+
+### SHAP Feature Importance
+
+![SHAP Summary](assets/shap_summary.png)
+
+---
+
 ## 💾 Deployment Readiness
 
 The final model was retrained on the full dataset and saved using `joblib`.
@@ -143,6 +170,7 @@ churn-prediction-ml/
 - Model tuning & evaluation
 - Experiment tracking
 - Deployment preparation
+- Model explainability using SHAP (global & local interpretation)
 
 ---
 
