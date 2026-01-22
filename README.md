@@ -58,6 +58,12 @@ _Provide actionable insights to reduce customer attrition_
 
 ---
 
+### ⚠️ Model Limitations
+
+While Random Forest provides strong performance, it is less interpretable than Logistic Regression. Feature importance was analyzed to partially mitigate this limitation.
+
+---
+
 ## Keywords:
 
 - EDA == Exploratory Data Analysis
