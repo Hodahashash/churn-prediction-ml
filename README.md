@@ -1,69 +1,153 @@
-## 📊 Business Problem
+# 📄 Customer Churn Prediction (Machine Learning)
 
-Customer churn is a major challenge in the telecommunications industry, where customer acquisition costs are high and competition is intense.
+## 📌 Project Overview
 
-This project focuses on predicting customer churn using machine learning techniques. By identifying customers who are likely to leave, businesses can take proactive measures such as targeted promotions, personalized offers, or service improvements to retain valuable customers.
+Customer churn is a critical business problem where companies lose customers to competitors. This project builds an **end-to-end machine learning pipeline** to predict customer churn and help businesses take **proactive retention actions**.
 
-The model prioritizes minimizing false negatives, as failing to identify a churn-risk customer results in lost revenue and missed retention opportunities.
+The solution covers the full ML lifecycle:
 
----
-
-# ❓ What is Churn?
-
-Churn occurs when a customer terminates their relationship with a company.
-In this dataset, churn is represented as a binary variable:
-
-- Yes → Customer has left the company
-
-- No → Customer is still an active customer
+- Business understanding
+- Data analysis & preprocessing
+- Model training & tuning
+- Model selection
+- Deployment-ready model saving
 
 ---
 
-# ❓ Why Does Churn Matter?
+## 🎯 Business Problem
 
-Customer churn directly impacts:
+**Goal:** Predict whether a customer is likely to churn.
 
-- Revenue loss
+**Why it matters:**
 
-- Customer lifetime value
+- Retaining existing customers is cheaper than acquiring new ones
+- Early churn detection enables targeted retention strategies
 
-- Marketing and acquisition costs
+**Cost of errors:**
 
-Reducing churn by even a small percentage can lead to significant increases in profit.
-Therefore, predicting churn accurately is a high-value business problem.
+- False Negative (missed churner): Customer leaves → revenue loss
+- False Positive: Retention offer cost (acceptable)
 
----
-
-# ❓ What Happens If We Predict Wrong?
-
-| Scenario                                                    | Impact                                         |
-| ----------------------------------------------------------- | ---------------------------------------------- |
-| **False Negative** (predict “No churn” but customer leaves) | Lost revenue, missed retention opportunity     |
-| **False Positive** (predict “Churn” but customer stays)     | Unnecessary discounts or incentives            |
-| **Correct Prediction**                                      | Targeted actions, optimized retention strategy |
-
-From a business perspective, false negatives are more costly, as losing a customer is harder to recover than offering an unnecessary incentive.
+📌 **Recall is prioritized** over accuracy.
 
 ---
 
-# 🎯 Business Objective
+## 📊 Dataset
 
-The goal of this project is to:
-
-_Predict customer churn with high recall_
-
-_Identify key factors influencing churn_
-
-_Provide actionable insights to reduce customer attrition_
+- **Source:** Telco Customer Churn Dataset (Kaggle)
+- **Size:** ~7,000 customers
+- **Target Variable:** `Churn`
+- **Features:** Demographics, services, contract, and billing information
 
 ---
 
-### ⚠️ Model Limitations
+## 🔍 Exploratory Data Analysis (EDA)
 
-While Random Forest provides strong performance, it is less interpretable than Logistic Regression. Feature importance was analyzed to partially mitigate this limitation.
+Key insights:
+
+- Month-to-month contracts show higher churn
+- Higher monthly charges correlate with churn
+- Longer tenure reduces churn probability
 
 ---
 
-## Keywords:
+## 🧹 Data Preprocessing
 
-- EDA == Exploratory Data Analysis
+Steps performed:
+
+- Data cleaning and type correction
+- Encoding categorical variables
+- Handling class imbalance
+- Feature consistency checks
+
+Processed data saved to:
+
+```
+data/processed/clean_telco_churn.csv
+```
+
+---
+
+## 🤖 Models Trained
+
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- Random Forest (Tuned)
+- XGBoost (experimental)
+
+---
+
+## ⚙️ Model Evaluation
+
+Metrics used:
+
+- Recall (primary)
+- ROC-AUC
+- Precision
+- F1-score
+
+---
+
+## 🏆 Final Model Selection
+
+### ✅ Tuned Random Forest
+
+**Reasons:**
+
+- Highest recall
+- Strong ROC-AUC
+- Reduced overfitting after tuning
+- Balanced performance and interpretability
+
+---
+
+## 💾 Deployment Readiness
+
+The final model was retrained on the full dataset and saved using `joblib`.
+
+Artifacts:
+
+```
+models/
+├── churn_random_forest_model.pkl
+└── model_metadata.pkl
+```
+
+---
+
+## 📁 Project Structure
+
+```
+churn-prediction-ml/
+├── data/
+├── notebooks/
+├── models/
+├── results/
+└── README.md
+```
+
+---
+
+## 🚀 Future Improvements
+
+- SHAP explainability
+- FastAPI deployment
+- Automated retraining
+
+---
+
+## 🧠 Skills Demonstrated
+
+- Business-focused ML
+- Model tuning & evaluation
+- Experiment tracking
+- Deployment preparation
+
+---
+
+## 📬 Contact
+
+**Name:** Hoda Al Hashash  
+**Field:** Machine Learning / Data Science  
+**Goal:** AI Researcher / ML Engineer
