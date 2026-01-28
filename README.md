@@ -143,6 +143,27 @@ models/
 
 ---
 
+## 🚀 API Demo (FastAPI)
+
+This project includes a FastAPI application that exposes the churn prediction model as a REST API.
+
+### Endpoint
+
+POST /predict
+
+### Input
+
+Customer features in JSON format
+
+### Output
+
+- churn_probability
+- churn_prediction (0 = stay, 1 = churn)
+
+This demonstrates how the model can be deployed in a real production system.
+
+---
+
 ## 📁 Project Structure
 
 ```
@@ -176,6 +197,6 @@ churn-prediction-ml/
 
 ## 📬 Contact
 
-**Name:** Hoda Al Hashash  
+**Name:** Hoda Hashash  
 **Field:** Machine Learning / Data Science  
 **Goal:** AI Researcher / ML Engineer
