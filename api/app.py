@@ -1,9 +1,14 @@
 from fastapi import FastAPI
 import joblib
 import numpy as np
+import sys
+from pathlib import Path
 
-from api.schemas import CustomerData
-from api.preprocess import preprocess_input
+# Add the api directory to the path
+sys.path.insert(0, str(Path(__file__).parent))
+
+from schemas import CustomerData
+from preprocess import preprocess_input
 
 app = FastAPI(
     title="Customer Churn Prediction API",
@@ -12,7 +17,8 @@ app = FastAPI(
 )
 
 # Load model
-model = joblib.load("../models/final_model.pkl")
+model_path = Path(__file__).parent.parent / "models" / "final_model.pkl"
+model = joblib.load(model_path)
 
 @app.get("/")
 def home():
